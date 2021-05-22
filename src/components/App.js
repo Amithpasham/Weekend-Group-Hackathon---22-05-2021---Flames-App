@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
- function App() {
+export default function App() {
   const [key1, setKey1] = useState("")
   const [key2, setKey2] = useState("")
   const [state, setstate] = useState("")
@@ -17,19 +17,30 @@ setKey1(e.target.value)
     setKey2("")
     setstate("")
   }
-  var str1=key1;var str2=key2;var len=0;var res="";
+  var len=0;var res="";
+  var str1=key1.split("");
+  var str2=key2.split("");
   function main(){
-   for(let i=0;i<str1.length;i++){
-     for(let j=0;j<str2.length;j++)
-   str1= str1.replace(str2.charAt(j),"")
-  //  console.log(str1,str2)
-  } 
-  for(let i=0;i<str2.length;i++){
-    for(let j=0;j<key1.length;j++)
-  str2= str2.replace(key1.charAt(j),"")
-  //console.log(str1,str2)
- } 
- len=(str1.length+str2.length)%6
+ 
+  for(let j=0;j<key1.length;j++){
+    var a = str1.indexOf(key2.charAt(j));
+   delete str1[a]}
+ 
+ for(let j=0;j<key2.length;j++){
+  var a = str2.indexOf(key1.charAt(j));
+ delete str2[a]}
+
+for(let i=0;i<key1.length;i++){
+  if(str1[i]!=undefined)
+  len++;
+}
+for(let i=0;i<key2.length;i++){
+  if(str2[i]!=undefined)
+  len++;
+}
+ 
+ console.log(len)
+ len=len%6
   
   switch(len){
     case 1:res="Friends"
@@ -59,5 +70,3 @@ setKey1(e.target.value)
       </div>
   )
 }
-
-export default App
