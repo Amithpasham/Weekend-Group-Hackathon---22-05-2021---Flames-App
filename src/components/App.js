@@ -22,11 +22,11 @@ setKey1(e.target.value)
   var str2=key2.split("");
   function main(){
  
-  for(let j=0;j<key1.length;j++){
+  for(let j=0;j<key2.length;j++){
     var a = str1.indexOf(key2.charAt(j));
    delete str1[a]}
  
- for(let j=0;j<key2.length;j++){
+ for(let j=0;j<key1.length;j++){
   var a = str2.indexOf(key1.charAt(j));
  delete str2[a]}
 
