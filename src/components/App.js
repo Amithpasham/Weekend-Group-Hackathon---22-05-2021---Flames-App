@@ -66,7 +66,8 @@ for(let i=0;i<key2.length;i++){
       <input data-testid="input2" placeholder="input2" onChange={fun2}></input>
       <button data-testid="calculate_relationship" onClick={main}>Calculate Relationship Future</button>
       <button data-testid="clear" onClick={fun}>Clear</button>
-      <h3 data-testid="answer">{state}</h3> 
+      {/* <h3 data-testid="answer">{state}</h3>  */}
+      {state?<h3 data-testid="answer">{state}</h3> :""}
       </div>
   )
 }
